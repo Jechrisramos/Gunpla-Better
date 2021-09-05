@@ -22,7 +22,7 @@ export default function ProductList(props) {
 
     const [fetchCategory, setFetchCategory] = useState("");
     const [productId, setProductId] = useState();
-    
+
     //state for add new product modal
     const [ showAdd, setShowAdd ] = useState(false);
 
@@ -229,6 +229,7 @@ export default function ProductList(props) {
                 gallery : gallery,
                 shortDescription : shortDescription,
                 category : category
+                
             })
         })
         .then(response => response.json())
