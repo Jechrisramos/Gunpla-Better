@@ -72,8 +72,11 @@ export default function ProductDetail (props) {
                         <hr/>
                         <p className="productPagePrice">P&nbsp;{ price }.00</p>
                         <hr/>
+                        <div className="productDescription">
                         <p>{ description }</p>
                         <p>{ shortDescription }</p>
+                        </div>
+                        
                         <hr/>
                         {
                             (user.email !== null) ? 
