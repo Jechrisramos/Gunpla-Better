@@ -1,38 +1,707 @@
-.App {
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root{
+	/*fonts*/
+	--heading-font: 'Black Ops One', cursive;
+	--primary-font: 'Oxygen', sans-serif;
+
+	/*colors*/
+	--primary-color: #082859;
+	--secondary-color: #AD232D;
+  --accent: #E6B23B;
+	--light-1: #F1F5F8;
+  --light-2: #FFF;
+	--dark-1: #141921;
+	--dark-2: #0F1011;
+}
+
+html, 
+body {
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+	color: var(--dark-1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--heading-font);
+	color: var(--primary-color);
+}
+
+p, a, button, li, option {
+  font-size: 16px;
+  margin-bottom: 0 !important;
+  font-weight: normal;
+	font-family: var(--primary-font);
+}
+
+a, a:hover {
+  text-decoration: none !important;
+}
+
+div.contentWidth {
+  width: 1300px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+/**Header**/
+div#headerNav {
+  box-shadow: 0 1px 3px #777 !important;
+  position: relative;
+  z-index: 9;
+}
+
+div#headerNav,
+div#footerNav {
+  padding: 0 10px;
+  background-color: var(--light-1);
+}
+
+h2#headerBusinessName{
+  line-height: 0.9;
+  letter-spacing: 1px;
+  margin-left: 20px;
+  margin-bottom: 0 !important;
+}
+
+h2 span#headerBrandNameFirstName{
+  font-size: 45px;
+  display: block;
+}
+
+h2 span#headerBrandNameSecondName{
+  font-size: 35px;
+  display: block;
+  color: var(--accent);
+}
+
+div#headerMenu a.nav-link {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+div#headerMenu a.headerMainMenu,
+div#headerMenu a.dropdown-toggle{
+  margin: 8px 12px;
+}
+
+.dropdown-menu {
+  padding: 5px;
+  left: -70px !important;
+}
+
+.dropdown-menu a.nav-link {
+  padding: 3px 5px;
+  letter-spacing: 1px;
+  font-size: 14px !important;
+}
+
+#cart-link i.fa-shopping-cart {
+  font-size: 22px;
+  color: var(--primary-color);
+}
+/**End of Header**/
+
+/* Footer */
+h2#footerBusinessName{
+  line-height: 0.9;
+  letter-spacing: 1px;
+  margin-left: 5px;
+  margin-bottom: 0 !important;
+}
+
+h2 span#footerBrandNameFirstName{
+  font-size: 45px;
+  display: block;
+}
+
+h2 span#footerBrandNameSecondName{
+  font-size: 35px;
+  display: block;
+  color: var(--accent);
+}
+
+div#footerNavigation{
+  justify-content: flex-end;
+}
+
+div#footerNavigation a{
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--dark-1);
+}
+
+div#footerNavigation a:hover,
+div#footerNavigation a:focus,
+div#footerNavigation a:active {
+  color: var(--secondary-color);
+}
+
+div#footerContent,
+div#footerBadgeRow {
+  padding: 10px;
+}
+
+div#footerBadgeRow {
+  background-color: var(--secondary-color);
+  color: var(--light-2);
+}
+
+p#copywrite {
+  font-size: 14px;
+  text-align: left;
+}
+
+p#rights {
+  font-size: 14px;
+  text-align: right;
+}
+/* End of Footer */
+
+/* NoFound Page */
+img.image404 {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 10px auto;
+}
+
+div.noResultMessage{
+  padding: 20px;
+  text-align: center;
+}
+/* End of NoFound Page */
+
+/* Home Hero */
+div.home-hero{
+  min-height: 75vh;
+  background-color: #f7f7f7;
+  background-image: url("https://i.im.ge/2021/09/05/QdMvpP.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  /* padding: 40px; */
+}
+
+div.home-hero:After{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(255 255 255 / 85%);
+  content: '';
+  z-index: 2;
+}
+
+div.heroContent{
+  z-index: 5;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+div#heroImageCol{
+  padding: 0;
+}
+
+div#heroHeadlineCol{
+  padding: 10px 50px 10px 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2.heroHeadline{
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h2.heroHeadline span.primary-heading,
+h2.heroHeadline span.secondary-heading {
+  display: block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2.heroHeadline span.primary-heading {
+  font-size: 40px;
+  font-weight: Bold;
+  line-height: 1.45;
+  font-family: var(--primary-font);
+  color: var(--dark-2);
 }
 
-.App-link {
-  color: #61dafb;
+h2.heroHeadline span.secondary-heading {
+  font-size: 110px;
+  line-height: 1;
+  color: var(--secondary-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p.heroDescription {
+ font-size: 20px;
+ line-height: 1;
 }
+
+/* custom button layout */
+a.customButton {
+  background-color: transparent;
+  border: 5px solid var(--secondary-color);
+  color: var(--dark-1);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: var(--primary-font);
+  line-height: 1;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 15px 20px;
+  transition: 0.18s;
+}
+
+a.customButton{
+  margin: 25px;
+}
+
+a.customButton:hover,
+a.customButton:active{
+  color: var(--light-2);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* custom button layout */
+/* End of Home Hero */
+
+/* Internal Hero */
+div.content-width{
+  max-width: 1360px;
+  display: block;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+div.internal-hero{
+  min-height: 95vh;
+  background-color: #f7f7f7;
+  background-image: url("https://i.im.ge/2021/09/05/QdMn21.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  /* padding: 40px; */
+}
+
+div.internal-hero:After{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(255 255 255 / 85%);
+  content: '';
+  z-index: 2;
+}
+/* End of Internal Hero */
+
+/* FORM LAYOUT */
+
+form.customForm {
+  margin: 0 auto;
+  padding: 40px 30px;
+  background-color: var(--light-2);
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+form.loginForm {
+  width: 550px;
+}
+
+form.registerForm{
+  width: 45%;
+}
+
+
+
+button.customButton,
+button.customButton:disabled {
+  background-color: transparent;
+  border: 5px solid var(--accent);
+  border-radius: 0;
+  color: var(--dark-1);
+  letter-spacing: 2px;
+  font-family: var(--primary-font);
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  transition: 0.18s;
+}
+
+button.customButton:hover,
+button.customButton:active,
+button.customButton:focus {
+  color: var(--dark-2);
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+input.form-control {
+  padding: 15px 15px;
+  font-size: 18px;
+  border-radius: 0;
+}
+
+input.form-control:active,
+input.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+/* END OF FORM LAYOUT */
+
+/* Avatar */
+div.avatarCard {
+  margin: 10px;
+  padding: 10px;
+}
+
+img.avatarImg {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
+img.avatarImgLg {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
+h2.avatarTitle {
+  font-family: var(--primary-color);
+  font-weight: 300;
+  margin: 5px 0;
+}
+/* End of Avatar */
+
+/* Login Page */
+form p.registerlink {
+  text-align: right;
+}
+
+form p.copyright {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  color: #424242;
+}
+/* End of Login Page */
+
+/* Profile Page*/
+div.profileCard {
+  background-image: url('https://i.im.ge/2021/09/05/QdQ1KJ.png');
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+div.profileCard,
+div.ordersCard {
+  padding: 20px;
+  margin: 20px 0;
+}
+
+h2.userName{
+  font-size: 35px;
+  font-family: var(--primary-font);
+  font-weight: 700;
+}
+
+span.adminBadge {
+  padding: 5px 10px;
+  margin: 5px 10px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: var(--light-2);
+  background-color: var(--secondary-color);
+
+}
+
+div.contactInfo p,
+div.contactInfo a{
+  padding: 7px 0;
+  font-size: 18px;
+  color: var(--dark-1);
+}
+
+div.contactInfo span.contactInfodetail {
+  padding-left: 10px;
+}
+
+/* End of Profile Page */
+
+/* Category Page */
+td.customCol{
+  width: 320px;
+}
+
+td.customPriceCol{
+  width: 130px;
+  text-align: center;
+}
+
+img.categoryImgThumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+/* End of Category Page */
+
+/* Orders Page */
+nav.customTabs a.active {
+  color: var(--light-2) !important;
+  background-color: var(--primary-color) !important;
+}
+
+nav.customTabs a {
+  color: var(--dark-2);
+}
+
+
+
+div.customTab {
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+/* End of Orders Page */
+
+/* Public Internal Hero */
+div.public-internal-hero{
+  min-height: 20vh;
+  background-color: #f7f7f7;
+  background-image: url("https://i.im.ge/2021/09/05/QdMn21.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  /* padding: 40px; */
+}
+
+div.public-internal-hero:After{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(255 255 255 / 85%);
+  content: '';
+  z-index: 2;
+}
+
+h1.pageTitle{
+  font-size: 50px;
+  text-align: center !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin: 0 auto;
+}
+
+div.contentRow{
+  min-height: 63vh;
+}
+/* End of Internal Hero */
+
+/* Shop Page */
+div.productCards {
+  padding: 20px 10px 20px 10px;
+  margin: 10px 0;
+  min-height: 475px;
+  background-image: url('https://i.im.ge/2021/09/05/QdQUSX.png');
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+img.featuredImage {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+div.productCards h2.categoryTitle {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--light-2);
+  margin: 10px 20px 0 20px;
+}
+
+div.productCards div.productContent{
+  padding: 5px;
+  text-align: center;
+  color: var(--light-2);
+}
+
+div.productCards p {
+  font-size: 15px;
+}
+
+p.productPrice {
+  font-size: 22px !important;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+a.productCTA {
+  padding: 10px;
+  margin: 10px 5px;
+  border: 3px solid var(--light-2);
+  color: var(--light-2);
+  font-size: 15px;
+}
+
+a.productCTA:hover {
+  border: 3px solid var(--accent);
+  background-color: var(--accent);
+  color: var(--dark-2);
+}
+/* End of Shop Page */
+
+/* Category Page */
+div.productCards h2.productTitle {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px 15px 0;
+  color: var(--light-2) !important;
+}
+/* End of Category Page */
+
+/* Product Page  */
+div.productPageContent {
+  width: 100%;
+  margin: 10px;
+  padding: 40px;
+  background-image: url('https://i.im.ge/2021/09/05/QdQVfa.png');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: bottom;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+img.productImage{
+  width: 100%;
+  height: 365px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+p.productPageCategory {
+  text-align: center;
+}
+
+div.productDetails {
+  padding: 20px 10px;
+}
+
+h1.productName {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-size: 35px;
+}
+
+p.productPagePrice {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+a.productPageCTA {
+  padding: 10px;
+  margin: 0;
+  border: 3px solid var(--secondary-color);
+  font-size: 15px;
+}
+/* End of Product Page  */
+
+/* Cart */
+h1.cartTitle {
+  text-align: left !important;
+  margin-left: 20px;
+}
+
+img.emptyCartIcon{
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin: 0 auto 20px auto;
+  background-color: #ececec;
+  padding: 30px;
+  border-radius: 30%;
+}
+
+p.emptyCartDescription,
+p.emptyCartDescription a {
+  font-size: 21px;
+}
+
+div.cartItems {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 40px;
+  border: 1px solid #f4f4f4;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+div.cartItems:hover {
+  background-color: #f7f7f7;
+}
+
+P.cartItemProductName{
+  line-height: 1;
+  font-size: 18px;
+}
+
+p.cartItemPrice,
+p.cartItemSubTotal {
+  line-height: 2;
+}
+
+button.clearCartButton,
+button.checkOutButton {
+  float: right;
+  margin-right: 20px;
+  color: var(--light-2);
+}
+/* End of Cart */
