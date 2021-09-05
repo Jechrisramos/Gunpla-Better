@@ -115,7 +115,7 @@ export default function MyCart (props) {
                 Swal.fire({
                     title : "Congratulations!",
                     icon : "success",
-                    text : `You have successfully added an order.`
+                    text : `You have successfully added one order.`
                 });
             }
         })
