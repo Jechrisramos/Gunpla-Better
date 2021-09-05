@@ -22,7 +22,7 @@ export default function Home(){
                 <Col xl={7} id="heroHeadlineCol">
                     <h2 className="heroHeadline">
                         <span className="primary-heading">Buy Best Quality Gunpla Model&nbsp;Kits&nbsp;In</span>
-                        <span className="secondary-heading">Gunpla Depot</span>
+                        <span className="secondary-heading">Gunpla BETTER</span>
                     </h2>
                     <p className="heroDescription">We offer Proven and Tested Gunpla Model Kits in the&nbsp;market.</p>
                     <Link className="customButton" to="/shop">Shop Now</Link>
