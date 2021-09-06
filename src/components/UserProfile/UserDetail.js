@@ -13,17 +13,20 @@ export default function UserDetail({userDetails, userOrders, fetchOrderData, fet
     const [ avatar, setAvatar ] = useState("");
     //useEffect
     useEffect( ()=> {
-        fetch(`${ process.env.REACT_APP_API_URL }/avatars/avatar/${avatarId}`)
-        .then(response => response.json())
-        .then(result => {
-            if(result){
-                setAvatar(result.url);
-            }else{ //placeholder
-                setAvatar("https://cdn-icons-png.flaticon.com/512/149/149071.png");
-            }
-            
-        })
-        .catch(error => console.log(error));
+        if(avatarId){
+            fetch(`${ process.env.REACT_APP_API_URL }/avatars/avatar/${avatarId}`)
+            .then(response => response.json())
+            .then(result => {
+                if(result){
+                    setAvatar(result.url);
+                }else{ //placeholder
+                    setAvatar("https://cdn-icons-png.flaticon.com/512/149/149071.png");
+                }
+                
+            })
+            .catch(error => console.log(error));
+        }
+        
     }, [avatarId, userDetails]);
 
     //function
@@ -162,14 +165,17 @@ export default function UserDetail({userDetails, userOrders, fetchOrderData, fet
             </Card>
             {
                 (isAdmin !== true) ?
-                (
-                    <>
-                    <Card className="ordersCard">
-                        <h3>Orders</h3>
-                        <Order userOrders={ userOrders } fetchOrderData={ fetchOrderData } />
-                    </Card>
-                    </>
-                )
+                    (userOrders !== "undefined") ?
+                        (
+                            <>
+                            <Card className="ordersCard">
+                                <h3>Orders</h3>
+                                <Order userOrders={ userOrders } fetchOrderData={ fetchOrderData } />
+                            </Card>
+                            </>
+                        )
+                    :
+                    ("")
             
             :
             ("")

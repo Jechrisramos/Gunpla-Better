@@ -14,71 +14,75 @@ export default function Order(props){
 
     //useEffect
     useEffect(() => {
-        const orderArray = userOrders.map( userOrder => {
+        console.log(userOrders);
+        if(userOrders){
+            const orderArray = userOrders.map( userOrder => {
             
-            let status = "";
-            let color = "";
-            if( userOrder.status === "in-progress"){
-                color = "text-primary";
-                status = "In Progress";
-            }else if (userOrder.status === "cancelled"){
-                color = "text-danger";
-                status = "Cancelled";
-            }else if (userOrder.status === "delivery"){
-                color = "text-success";
-                status = "Delivery";
-            }else if (userOrder.status === "complete"){
-                color = "text-secondary";
-                status = "Complete";
-            }else {
-                status = "";
-            }
-
-            return(
-                <>
-                    <tr>
-                        <td><strong>{ userOrder._id }</strong></td>
-                        <td>{ Moment(userOrder.purchasedOn).calendar() }</td>
-                        <td>P&nbsp;{ userOrder.totalAmount }.00</td>
-                        <td className={ color }><strong>{ status }</strong></td>
-                        <td>
-                            {
-                                (userOrder.status === "in-progress") ? 
-                                (
-                                    <>
-                                    <Button
-                                        variant="danger"
-                                        size="sm"
-                                        className="mr-2"
-                                        onClick={ () => {cancelOrder(userOrder._id)} }
-                                    >
-                                        Cancel Order
-                                    </Button>
-
-                                    <Link
-                                        className="btn btn-sm btn-primary"
-                                        to={`/profile/order/${userOrder._id}`}
-                                    >
-                                        View Details
-                                    </Link>
-                                    </>
-                                )
-                                :
-                                (
-                                    <Link
-                                        className="btn btn-sm btn-primary"
-                                        to={`/profile/order/${userOrder._id}`}
-                                    >
-                                        View Details
-                                    </Link>
-                                )
-                            }
-                        </td>
-                    </tr>
-                </>
-            );
-        }); //end of orderArray
-        setOrder(orderArray);
+                let status = "";
+                let color = "";
+                if( userOrder.status === "in-progress"){
+                    color = "text-primary";
+                    status = "In Progress";
+                }else if (userOrder.status === "cancelled"){
+                    color = "text-danger";
+                    status = "Cancelled";
+                }else if (userOrder.status === "delivery"){
+                    color = "text-success";
+                    status = "Delivery";
+                }else if (userOrder.status === "complete"){
+                    color = "text-secondary";
+                    status = "Complete";
+                }else {
+                    status = "";
+                }
+    
+                return(
+                    <>
+                        <tr>
+                            <td><strong>{ userOrder._id }</strong></td>
+                            <td>{ Moment(userOrder.purchasedOn).calendar() }</td>
+                            <td>P&nbsp;{ userOrder.totalAmount }.00</td>
+                            <td className={ color }><strong>{ status }</strong></td>
+                            <td>
+                                {
+                                    (userOrder.status === "in-progress") ? 
+                                    (
+                                        <>
+                                        <Button
+                                            variant="danger"
+                                            size="sm"
+                                            className="mr-2"
+                                            onClick={ () => {cancelOrder(userOrder._id)} }
+                                        >
+                                            Cancel Order
+                                        </Button>
+    
+                                        <Link
+                                            className="btn btn-sm btn-primary"
+                                            to={`/profile/order/${userOrder._id}`}
+                                        >
+                                            View Details
+                                        </Link>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <Link
+                                            className="btn btn-sm btn-primary"
+                                            to={`/profile/order/${userOrder._id}`}
+                                        >
+                                            View Details
+                                        </Link>
+                                    )
+                                }
+                            </td>
+                        </tr>
+                    </>
+                );
+            }); //end of orderArray
+            setOrder(orderArray);
+        }
+        
     }, [userOrders]);
 
     //functions
