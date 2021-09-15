@@ -26,9 +26,9 @@ export default function Header() {
         :
         (
             <>
-                <Nav.Link className="headerMainMenu">About</Nav.Link>
+                {/* <Nav.Link className="headerMainMenu">About</Nav.Link> */}
                 <Nav.Link as={NavLink} to="/shop" className="headerMainMenu">Shop</Nav.Link>
-                <Nav.Link className="headerMainMenu">Contact Us</Nav.Link>
+                {/* <Nav.Link className="headerMainMenu">Contact Us</Nav.Link> */}
             </>
         );
 

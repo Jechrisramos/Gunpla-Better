@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 export default function ProductList(props) {
 
     //variables
-    const { allProducts, allCategory, fetchProductData } = props;
+    const { currentProducts, allCategory, fetchProductData } = props;
     
     //useStates
     const [ products, setProducts ] = useState([]);
@@ -28,7 +28,7 @@ export default function ProductList(props) {
 
     //useEffects
     useEffect(() => {
-        const productArray = allProducts.map( product => {
+        const productArray = currentProducts.map( product => {
             
             let categoryName = "";
             allCategory.map( category => {
@@ -41,13 +41,19 @@ export default function ProductList(props) {
                 <tr key={ product._id } id={ product._id }>
                     {/* <td>{ product._id }</td> */}
                     <td className="customCol">
-                        {
-                            (product.gallery !== "") ?
-                            (<Image className="categoryImgThumbnail mr-2" src={ product.gallery }/>)
-                            :
-                            (<Image className="categoryImgThumbnail mr-2" src="https://image.flaticon.com/icons/png/512/44/44289.png"/>)
-                        }
-                        <strong>{ product.productName }</strong>
+                        <Row className="px-2 d-flex align-items-center">
+                            <Col xs={2}>
+                            {
+                                (product.gallery !== "") ?
+                                (<Image className="categoryImgThumbnail mr-2" src={ product.gallery }/>)
+                                :
+                                (<Image className="categoryImgThumbnail mr-2" src="https://image.flaticon.com/icons/png/512/44/44289.png"/>)
+                            }
+                            </Col>
+                            <Col xs={10} className="px-4">
+                            <strong>{ product.productName }</strong>
+                            </Col>
+                        </Row>
                     </td>
                     <td className={ (product.isAvailable === true) ? "text-success" : "text-danger" } align="center">
                         { 
@@ -125,7 +131,7 @@ export default function ProductList(props) {
         setProducts(productArray);
         setCategories(categoryArray);
 
-    }, [allProducts, allCategory]);
+    }, [currentProducts, allCategory]);
 
     //functions
     //Create new product
@@ -334,13 +340,13 @@ export default function ProductList(props) {
 
     return(
         <>
-            <Col>
+            <Col xs={12} lg={12}>
                 <Button className="customButton mb-3" onClick={ openAdd }>Add New Product</Button>
                 <Table striped bordered hover responsive>
                     <thead className="bg-dark text-white">
                         <tr align="center">
                             {/* <td>ID</td> */}
-                            <td className="customCol">PRODUCTS ({ allProducts.length })</td>
+                            <td className="customCol">PRODUCTS ({ currentProducts.length })</td>
                             <td>STATUS</td>
                             <td>SKU</td>
                             <td className="customCol">DESCRIPTION</td>

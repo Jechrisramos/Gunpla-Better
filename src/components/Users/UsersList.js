@@ -87,11 +87,11 @@ export default function UsersList(props) {
 
     return(
         <>
-        <Col>
+        <Col xs={12} lg={12}>
             <Table striped bordered hover responsive>
                 <thead className="bg-dark text-white">
                     <tr align="center">
-                        <th>Name</th>
+                        <th>User ({ users.length })</th>
                         <th>Role</th>
                         <th>Phone</th>
                         <th>Email</th>

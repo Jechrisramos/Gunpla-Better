@@ -329,8 +329,6 @@ form.registerForm{
   width: 45%;
 }
 
-
-
 button.customButton,
 button.customButton:disabled {
   background-color: transparent;
@@ -711,3 +709,9 @@ button.checkOutButton {
   color: var(--light-2);
 }
 /* End of Cart */
+
+/* Pagination */
+ul.paginationMenuColumn {
+  justify-content: center;
+}
+/* End of Pagination */

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 import ProductList from "../../components/products/ProductList";
+import Paginator from "../../components/pagination/Paginator";
 
 export default function Products () {
 
@@ -9,7 +10,10 @@ export default function Products () {
 
     //useStates
     const [ allProducts, setAllProducts ] = useState([]);
-    const [allCategory, setAllCategory] = useState([]);
+    const [ allCategory, setAllCategory ] = useState([]);
+
+    const [ currentPage, setCurrentPage ] = useState(1);
+    const [ productsPerPage, setProductsPerPage ] = useState(10);
     
     const fetchProductData = async () => {
         await fetch(`${ process.env.REACT_APP_API_URL }/products/`, {
@@ -52,11 +56,18 @@ export default function Products () {
     }, []);
 
     //functions
+    //get current products
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    
     return(
         <Row className="hero internal-hero">
-            <div className="heroContent content-width d-flex align-items-center">
-                <ProductList allProducts={ allProducts } allCategory={ allCategory } fetchProductData={ fetchProductData } />
+            <div className="heroContent content-width">
+                <ProductList currentProducts={ currentProducts } allCategory={ allCategory } fetchProductData={ fetchProductData } />
+                <Paginator itemsPerPage={ productsPerPage } totalItems={ allProducts.length } currentPage={ currentPage } paginate={ paginate }/>
             </div>
         </Row>
     ); //end of return

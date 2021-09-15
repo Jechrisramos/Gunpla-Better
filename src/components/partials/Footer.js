@@ -28,10 +28,10 @@ export default function Footer() {
                 <Col sm={12} md={8}>
                     <Nav id="footerNavigation">
                         <Nav.Link as={NavLink} to="/" className="headerMainMenu">Home</Nav.Link>
-                        <Nav.Link className="headerMainMenu">About</Nav.Link>
+                        {/* <Nav.Link className="headerMainMenu">About</Nav.Link> */}
                         <Nav.Link as={NavLink} to="/shop" className="headerMainMenu">Shop</Nav.Link>
-                        <Nav.Link className="headerMainMenu">Contact Us</Nav.Link>
-                        <Nav.Link className="headerMainMenu">Terms of Services</Nav.Link>
+                        {/* <Nav.Link className="headerMainMenu">Contact Us</Nav.Link> */}
+                        {/* <Nav.Link className="headerMainMenu">Terms of Services</Nav.Link> */}
                     </Nav>
                 </Col>
                 </div>
